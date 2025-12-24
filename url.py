@@ -56,25 +56,20 @@ class URL:
         return content
     
 
-def show(body):
+def lex(body):
     in_tag = False
+    text = ""
     for c in body:
         if c=="<":
             in_tag = True
         elif c == ">":
             in_tag = False
         elif not in_tag:
-            print(c, end="")
+            text+= c
+    
+    return text
 
-def load(url):
-    body = url.request()
-    show(body)
 
-# def lex(body):
-#     text = ""
-#     in_tag = False
-#     for c in body:
-#         elif not in_tag
 
 
 if __name__ == "__main__":
