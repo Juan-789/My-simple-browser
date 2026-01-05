@@ -1,6 +1,6 @@
 import socket
 import ssl
-import browser
+from browser import Text, Tag, Browser
 import tkinter
 
 class URL:
@@ -56,24 +56,12 @@ class URL:
         return content
     
 
-def lex(body):
-    in_tag = False
-    text = ""
-    for c in body:
-        if c=="<":
-            in_tag = True
-        elif c == ">":
-            in_tag = False
-        elif not in_tag:
-            text+= c
-    
-    return text
 
 
 
 
 if __name__ == "__main__":
     import sys
-    browser.Browser().load(URL(sys.argv[1]))
+    Browser().load(URL(sys.argv[1]))
     tkinter.mainloop()
     # load(URL(sys.argv[1]))
